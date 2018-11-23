@@ -1,0 +1,4 @@
+@import "sprite";
+.a{
+  @include sprite($logo01)
+}
