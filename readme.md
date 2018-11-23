@@ -28,7 +28,6 @@
 │   │       ├── index.js
 │   │       └── template.js
 │   └── serv.js
-├── webpack-start.iml
 └── yarn.lock
 ```
  
