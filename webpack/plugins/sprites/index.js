@@ -13,14 +13,18 @@ function run(images, k, cb) {
         padding: 2
     }, (err, result) => {
         if (err) return;
-        const {coordinates: v, image: i} = result;
+        const {coordinates: v, image: i, properties: {height: h, width: w}} = result;
+        const fx = (a, b, c = 0) => {
+            if (b === c) return 0;
+            else return parseFloat((a * 100 / (b - c)).toFixed(5)) + '%';
+        };
         Object.keys(v).forEach(r => {
             const n = r.replace(/\.\w+$/, '')
                 .replace(/.*[\/\\]/, '')
                 .replace(/\s/gi, '')
                 .replace(/(^\d)/, '_$1');
             const {x, y, width, height} = v[r];
-            o.c.d.push([`${n}`, `${width}px ${height}px ${x}px -${y}px ${ck};\n`]);
+            o.c.d.push([`${n}`, `${width}px ${height}px -${x}px -${y}px ${ck} ${fx(x, w, width)} ${fx(y, h, height)} ${fx(w, width)} ${height / width};\n`]);
         });
         o.s.o = k;
         o.s.d = i;
@@ -59,7 +63,7 @@ module.exports = class Sprites {
         let watched = false;
         const initWatch = (d, f) => {
             watched = true;
-            compiler.hooks.afterCompile.tap('after-compile',(cp)=>{
+            compiler.hooks.afterCompile.tap('after-compile', (cp) => {
                 const dirs = Object.keys(d);
                 const files = Object.keys(f);
                 if (dirs.length) {
@@ -108,7 +112,7 @@ module.exports = class Sprites {
                 files.forEach(o => {
                     const f0 = o.files;
                     for (let i = 0, l = f0.length; i < l; i++) {
-                        if (mt[f0[i].replace(/\//g,'\\')]) {
+                        if (mt[f0[i].replace(/\//g, '\\')]) {
                             return ff.push(o);
                         }
                     }

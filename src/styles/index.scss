@@ -1,4 +1,14 @@
 @import "sprite";
 .a{
-  @include sprite($logo01)
+  @include sprite($logo02, 100px)
+}
+.b{
+  @include sprite($logo02, 60px)
+}
+
+.c{
+  @include sprite($logo02,30px)
+}
+.d{
+  @include sprite($logo02)
 }
