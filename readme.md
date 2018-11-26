@@ -65,6 +65,7 @@ Here is an example for how to write a webpack plugin.
 #####  sprites image
 Usage:
 ```
+// webpack config
 new SpritesPlugin({
     scssPath: '_sprite.scss',              // default 
     base: './src/styles',                  // default 
@@ -73,4 +74,29 @@ new SpritesPlugin({
            '../assets/images/sprite/*.png' // target files or dirs
     },
 }),
+
+// scss file
+.c{
+  @include sprite($logo02,30px)
+}
+.d{
+  @include sprite($logo02)
+}
+
+// css output
+.c {
+    background-size: 126.66667% auto;
+    width: 30px;
+    height: 30.33333px
+}
+
+.c, .d {
+    background-image: url(../images/sp.3d69411c.png);
+    background-position: 0 0
+}
+
+.d {
+    width: 90px;
+    height: 91px
+}
 ```
