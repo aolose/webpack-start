@@ -66,10 +66,10 @@ Here is an example for how to write a webpack plugin.
 Usage:
 ```
 new SpritesPlugin({
-    scssPath: '_sprite.scss',              // default value
-    base: './src/styles',                  // default value
+    scssPath: '_sprite.scss',              // default 
+    base: './src/styles',                  // default 
     source: { 
-        '../assets/images/sp':             // output Path               
+        '../assets/images/sp':             // output  ./src/styles/assets/images/sp.png          
            '../assets/images/sprite/*.png' // target files or dirs
     },
 }),
