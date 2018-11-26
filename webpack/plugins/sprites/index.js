@@ -87,7 +87,7 @@ module.exports = class Sprites {
                 const f = glob.sync(ps);
                 if (x) {
                     dirs[ps.substr(0, x)] = 1;
-                } else if (/\*|[^.\\/]+[\\/]?$/.test(ps)) {
+                } else if (/\*|[\\/][^.\\/]+[\\/]?$/.test(ps)) {
                     dirs[ps] = 1
                 } else {
                     f && f.forEach(v => ffs[v] = 1);
