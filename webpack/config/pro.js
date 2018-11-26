@@ -2,6 +2,7 @@ const base = require('./base');
 module.exports = base({
     mode: 'production',
     devtool: 'source-map',
+    entry: './src/index.js',
     output: {
         filename: 'js/[name].[hash:8].js',
     },

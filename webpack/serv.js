@@ -30,7 +30,7 @@ if (isDeveloping) {
             modules: false
         }
     });
-    app.use(middleware);
+    if (webpackConfig.devServer.historyApiFallback) app.use(middleware);
     app.use(webpackHotMiddleware(compiler));
     app.get('*', function response(req, res) {
         res.write(middleware.fileSystem.readFileSync(path.join(__dirname, '../dist/index.html')));

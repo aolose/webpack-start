@@ -15,9 +15,8 @@ module.exports = function (cfg = {}) {
     })|| [];
     return merge({
         context: base,
-        entry: './src/index.js',
         output: {
-            filename: 'bundle.js',
+            filename: '[name].[hash:8].js',
             path: dist
         },
         plugins: [
