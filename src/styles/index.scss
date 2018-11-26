@@ -1,4 +1,10 @@
+//noinspection CssInvalidAtRule
+@import-normalize;
 @import "sprite";
+html,body{
+  margin: 0;
+  padding: 0;
+}
 .a{
   @include sprite($logo02, 100px)
 }
