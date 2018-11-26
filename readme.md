@@ -37,22 +37,6 @@
 ### Debug webpack width webpack-nano in idea
 ![](./screenshot/0.jpg)
 
-### Write a Webpack Plugin
-Here is an example for how to write a webpack plugin. 
-
-#####  sprites image
-Usage:
-```
-new SpritesPlugin({
-    scssPath: '_sprite.scss',              // default value
-    base: './src/styles',                  // default value
-    source: { 
-        '../assets/images/sp':             // output Path               
-           '../assets/images/sprite/*.png' // target files or dirs
-    },
-}),
-```
-
 ##### [webpack-nano](https://github.com/shellscape/webpack-nano " ")
  Usage:
 ```
@@ -74,3 +58,19 @@ $ npx wp --help
     $ wp --config webpack.config.js
     $ wp --config.serve webpack.config.js
 ```    
+
+### Write a Webpack Plugin
+Here is an example for how to write a webpack plugin. 
+
+#####  sprites image
+Usage:
+```
+new SpritesPlugin({
+    scssPath: '_sprite.scss',              // default value
+    base: './src/styles',                  // default value
+    source: { 
+        '../assets/images/sp':             // output Path               
+           '../assets/images/sprite/*.png' // target files or dirs
+    },
+}),
+```
