@@ -1,6 +1,7 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const SpritesPlugin = require('../plugins/sprites');
 const base = process.cwd();
@@ -31,7 +32,11 @@ module.exports = function (cfg = {}) {
             new HtmlWebpackPlugin({
                 template: 'src/index.html',
                 favicon: './src/assets/fav.ico',
-            })
+            }),
+            new CopyWebpackPlugin([{
+                from: './src/assets/images/raw',
+                to: './images/a',
+            }]),
         ].concat(minCss),
         module: {
             rules: [

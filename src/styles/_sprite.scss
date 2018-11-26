@@ -1,6 +1,6 @@
-$x63v06i : "../assets/images/sp.png";
-$logo01 : 90px 91px 0px -0px $x63v06i;
-$logo02 : 90px 91px 92px -0px $x63v06i;
+$x4cfq5f : "../assets/images/sp.png";
+$logo01 : 90px 91px 0px -0px $x4cfq5f;
+$logo02 : 90px 91px 92px -0px $x4cfq5f;
 
 @mixin sprite-width($sprite) {
   width: nth($sprite, 1);
