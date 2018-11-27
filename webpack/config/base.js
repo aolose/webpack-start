@@ -9,10 +9,10 @@ const dist = path.resolve(base, 'dist');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = function (cfg = {}) {
     const isPro = cfg.mode === 'production';
-    const minCss = isPro &&  new MiniCssExtractPlugin({
+    const minCss = isPro && new MiniCssExtractPlugin({
         filename: "css/[name].[hash:8].css",
         chunkFilename: "[id].css"
-    })|| [];
+    }) || [];
     return merge({
         context: base,
         output: {
@@ -40,6 +40,13 @@ module.exports = function (cfg = {}) {
         module: {
             rules: [
                 {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: "babel-loader"
+                    }
+                },
+                {
                     test: /\.(sa|sc|c)ss$/,
                     use: [
                         isPro ? {
@@ -47,7 +54,7 @@ module.exports = function (cfg = {}) {
                             options: {
                                 publicPath: '../'
                             }
-                        }: 'style-loader',
+                        } : 'style-loader',
                         'css-loader',
                         'postcss-loader',
                         'sass-loader',

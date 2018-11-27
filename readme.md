@@ -1,38 +1,54 @@
+### Say something? emm...
+About this project:
+- webpack4 + inferno6 + inferno-mobx
+- write a webpack plugin
+- any element size width sprite image
 
-## Tree
+### Directory
 ```
+.
 ├── package.json
 ├── postcss.config.js
 ├── readme.md
+├── screenshot
+│   └── 0.jpg
 ├── src
 │   ├── assets
 │   │   ├── fav.ico
 │   │   └── images
-│   │       ├── sp.png  // auto generated
 │   │       ├── raw
-│   │       ├── logo01.png
-│   │       │   ├── logo02.png
-│   │       │   └── logo02.png
+│   │       │   ├── logo01.png
+│   │       │   └── logo02.png
+│   │       ├── sp.png              // auto generated
 │   │       └── sprite
 │   │           ├── logo01.png
 │   │           └── logo02.png
+│   ├── components  
+│   │   ├── Home.js
+│   │   ├── OutSide.js              // an example for sprite image
+│   │   └── Router.js               
 │   ├── index.html
 │   ├── index.js
+│   ├── routes.js
+│   ├── stores
+│   │   └── store.js
 │   └── styles
 │       ├── index.scss
-│       └── _sprite.scss  // auto generated
+│       └── _sprite.scss            // auto generated
 ├── webpack
 │   ├── config
 │   │   ├── base.js
-│   │   ├── dev.js   for development
-│   │   └── pro.js   for production
+│   │   ├── dev.js
+│   │   └── pro.js
 │   ├── plugins
-│   │   └── sprites   a example for write webpack plugin
+│   │   └── sprites                 // an example for webpack plugin
 │   │       ├── index.js
-│   │       └── template.js
+│   │       └── template.js         // sprite mxin func
 │   └── serv.js
+├── webpack-start.iml
 └── yarn.lock
 ```
+
  
 ### Debug webpack width webpack-nano in idea
 ![](./screenshot/0.jpg)
