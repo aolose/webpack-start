@@ -19,6 +19,12 @@ module.exports = function (cfg = {}) {
             filename: '[name].[hash:8].js',
             path: dist
         },
+        resolve: {
+            alias: {
+                'react': 'inferno-compat',
+                'react-dom': 'inferno-compat'
+            }
+        },
         plugins: [
             new CleanWebpackPlugin([dist], {
                 root: base

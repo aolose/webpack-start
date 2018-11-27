@@ -4008,15 +4008,37 @@ indexof@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/indexof/-/indexof-0.0.1.tgz#82dc336d232b9062179d05ab3293a66059fd435d"
 
-inferno-create-class@6.3.1:
+inferno-clone-vnode@6.3.1, inferno-clone-vnode@^6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/inferno-clone-vnode/-/inferno-clone-vnode-6.3.1.tgz#79645aadbac218e4c9521218418a2fbf63c7012f"
+  dependencies:
+    inferno "6.3.1"
+
+inferno-compat@^6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/inferno-compat/-/inferno-compat-6.3.1.tgz#f84b74f45c7f344ec18c347a8196d8140e148bd2"
+  dependencies:
+    inferno "6.3.1"
+    inferno-clone-vnode "6.3.1"
+    inferno-create-class "6.3.1"
+    inferno-create-element "6.3.1"
+    inferno-extras "6.3.1"
+
+inferno-create-class@6.3.1, inferno-create-class@^6.3.1:
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/inferno-create-class/-/inferno-create-class-6.3.1.tgz#c8a7aa4032520e7099c4ce65ea71013f03789715"
   dependencies:
     inferno "6.3.1"
 
-inferno-create-element@6.3.1:
+inferno-create-element@6.3.1, inferno-create-element@^6.3.1:
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/inferno-create-element/-/inferno-create-element-6.3.1.tgz#eb7a06e0e86e9407c85d798d06c53d46dd5f6da1"
+  dependencies:
+    inferno "6.3.1"
+
+inferno-extras@6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/inferno-extras/-/inferno-extras-6.3.1.tgz#633866437978fcdaa41d3bcfa4be701b658faf1e"
   dependencies:
     inferno "6.3.1"
 
