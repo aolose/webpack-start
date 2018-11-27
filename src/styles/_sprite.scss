@@ -1,6 +1,6 @@
-$xat86ac : "../assets/images/sp.png";
-$logo01 : 22px 24px -92px -0px $xat86ac 100% 0% 518.18182% 1.0909090909090908;
-$logo02 : 90px 91px -0px -0px $xat86ac 0% 0 126.66667% 1.011111111111111;
+$x7otsaa : "../assets/images/sp.png";
+$logo01 : 22px 24px -92px -0px $x7otsaa 100% 0% 518.18182% 1.0909090909090908;
+$logo02 : 90px 91px -0px -0px $x7otsaa 0% 0 126.66667% 1.011111111111111;
 
 @mixin sprite-width($sprite, $width) {
   @if $width{

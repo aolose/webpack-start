@@ -1,4 +1,5 @@
 const base = require('./base');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 module.exports = base({
     mode: 'production',
     devtool: 'source-map',
@@ -7,8 +8,32 @@ module.exports = base({
         filename: 'js/[name].[hash:8].js',
     },
     optimization: {
+        minimizer: [
+            new UglifyJSPlugin({
+                sourceMap: true,
+                parallel: true,
+                uglifyOptions: {
+                    output:{
+                        comments:false,
+                        beautify:false,
+                    },
+                    compress: {
+                        drop_console:true,
+                        inline: true
+                    }
+                }
+            })
+        ],
+        removeAvailableModules:true,
+        sideEffects: true,
         splitChunks: {
             cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all',
+                    minChunks: 2
+                },
                 styles: {
                     name: 'styles',
                     test: /\.css$/,
