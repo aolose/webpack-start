@@ -1,0 +1,6 @@
+src/styles/_sprite.scss
+dist/
+node_modules/
+src/assets/images/sp.png
+*.iml
+.idea
