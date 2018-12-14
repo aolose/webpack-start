@@ -2,9 +2,20 @@ import React, {Component} from "react";
 import splitStyle from 'spriteJS';
 import 'css/Out.scss';
 
-const Content = ({icon, value}) => <>
-    <h5>js width:{parseFloat(value) || ' original'}</h5>
-    <div style={splitStyle(icon, parseFloat(value))}/>
+function noBgSplitStyle(icon, value, useCss) {
+    const o = splitStyle(icon, parseFloat(value));
+    const {width, height} = o;
+    console.log(icon, o);
+    return useCss ? value ? {width, height} : {} : o;
+}
+
+const Content = ({icon, value, useCss = 0}) => <>
+    <h5>{
+        ['js auto width - ', 'css auto width - ', 'css fixed width - '][useCss]}
+        {parseFloat(value) || (useCss-1?' original':'100')
+        }</h5>
+    <div className={['', icon + '-a', icon + '-b'][useCss]}
+         style={noBgSplitStyle(icon, parseFloat(value), useCss)}/>
 </>;
 
 class Range extends Component {
@@ -17,40 +28,35 @@ class Range extends Component {
 
     render() {
         return <>
-            {this.props.render(this.state)}
             <input
-                style={{
-                    position: 'absolute',
-                    left: '5%',
-                    bottom: 10,
-                    width: '90%',
-                    fontSize: 10
-                }}
+                className={'range'}
                 type={'range'}
                 value={this.state.value}
-                max={105}
-                min={1}
+                max={1000}
+                min={0}
                 onChange={e => this.setState({value: e.target.value})}
             />
+            <div className={'clear'}/>
+            {this.props.render(this.state)}
         </>
     }
 }
 
 export default () => <div className='z'>
     <h2>BackgroundSize with sprite image</h2>
-    {[
-        ['logo01', 30],
-        ['logo03', 60],
-        ['logo04', 90],
-    ].map(([t, c]) =>
-        <div key={t + c} className={'x'}>
-            <Range value={c} render={
-                ({value}) => <Content value={value} icon={t}/>
-            }/>
-        </div>
-    )}
-    <div className={'x'}>
-        <h5>css width:{100}</h5>
-        <div className={'a'}/>
-    </div>
+    <Range value={100} render={({value}) =>
+        [0, 1, 2].reduce(
+            (a, n) => a.push(
+                ['logo01', value, n],
+                ['logo02', value, n],
+                ['logo03', value, n],
+                ['logo04', value, n]
+            ) && a, []).map(
+            ([t, c, useCss]) =>
+                <div key={t + c + useCss} className={'x'}>
+                    <label>Image origin name: {t}.png</label>
+                    <Content value={value} useCss={useCss} icon={t}/>
+                </div>
+        )
+    }/>
 </div>;

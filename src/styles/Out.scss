@@ -1,10 +1,28 @@
 @import "sprite.scss";
-.a {
-  @include sprite($logo02, 100px)
+$lg: $logo01 $logo02 $logo03 $logo04;
+@for $i from 1 through 4 {
+    .#{logo0}#{$i}#{-a} {
+      @include sprite(nth($lg,$i), 100px)
+    }
+    .#{logo0}#{$i}#{-b} {
+      @include sprite(nth($lg,$i))
+    }
 }
 .z {
+  max-width: 800px;
   margin: 0 40px;
+  h5,label{
+    margin: 0;
+    width: 100%;
+    font-weight: 200;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  h5+div{
+    margin-top: 10px;
+  }
   h2{
+    margin: 5px 0;
     text-transform: uppercase;
     font-size: 18px;
     color: #999;
@@ -12,18 +30,28 @@
     line-height: 2;
   }
   .x{
+    overflow: hidden;
     position: relative;
-    width: 110px;
+    width: 160px;
     display: flex;
     align-items: center;
     flex-direction: column;
     float: left;
-    margin: 20px;
+    margin: 2px;
     background: #666;
     padding: 10px;
-    height: 180px;
+    height: 160px;
     color: #fff;
     border-radius: 3px;
     box-shadow: rgba(0,0,0,.2) 1px 3px 14px 1px;
   }
+  .range {
+    width: 400px;
+    max-width: 90%;
+    margin: 10px 2px;
+    float: left;
+  }
+}
+.clear{
+  clear: both;
 }
