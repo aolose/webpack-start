@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import splitStyle from 'spriteJS';
 import {inject, observer} from 'mobx-react';
 import 'css/Out.scss';
@@ -18,10 +18,6 @@ const Content = ({icon, value, useCss = 0}) => <>
          style={noBgSplitStyle(icon, parseFloat(value), useCss)}/>
 </>;
 
-function changeValue(s, v) {
-    s.value = parseFloat(v);
-}
-
 const Range = inject('outStore')(observer(({outStore, render}) =>
     <>
         <input
@@ -30,7 +26,7 @@ const Range = inject('outStore')(observer(({outStore, render}) =>
             value={outStore.value}
             max={240}
             min={0}
-            onChange={e => changeValue(outStore, e.target.value)}
+            onChange={e => outStore.value = e.target.value}
         />
         <div className={'clear'}/>
         {render(outStore.value)}
