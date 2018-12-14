@@ -5,11 +5,11 @@ function changeName(s) {
     s.name = 'Click ' + Date.now();
 }
 
-export default inject('rootStore')(observer(
-    ({rootStore}) => {
+export default inject('homeStore')(observer(
+    ({homeStore}) => {
         return <div>
-            <h2 className={'y'} onClick={()=>changeName(rootStore)}>
-                {rootStore.name}
+            <h2 className={'y'} onClick={()=>changeName(homeStore)}>
+                {homeStore.name}
             </h2>
         </div>
     })

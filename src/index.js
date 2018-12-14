@@ -4,7 +4,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {NavLink} from 'react-router-dom';
 import routes from './routes';
-import store from './stores/store';
+import * as store from './stores/store';
 import Router from './components/Router';
 
 const Nav = () => (
@@ -13,7 +13,7 @@ const Nav = () => (
         <NavLink activeClassName='act' to='/out'>Out</NavLink>
     </div>
 );
-const App = () => <Provider rootStore={store}>
+const App = () => <Provider {...store}>
     <Router before={<Nav/>} routes={routes} root/>
 </Provider>;
 
