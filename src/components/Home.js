@@ -1,5 +1,5 @@
-import {linkEvent} from 'inferno'
-import {inject, observer} from 'inferno-mobx'
+import React from "react";
+import {inject, observer} from 'mobx-react';
 
 function changeName(s) {
     s.name = 'Click ' + Date.now();
@@ -8,7 +8,7 @@ function changeName(s) {
 export default inject('rootStore')(observer(
     ({rootStore}) => {
         return <div>
-            <h2 className={'y'} onClick={linkEvent(rootStore, changeName)}>
+            <h2 className={'y'} onClick={()=>changeName(rootStore)}>
                 {rootStore.name}
             </h2>
         </div>

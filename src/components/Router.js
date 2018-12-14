@@ -1,23 +1,26 @@
-import {Route, Switch, BrowserRouter} from 'inferno-router';
+import React from "react";
+import {Route, Switch} from 'react-router';
+import {BrowserRouter} from 'react-router-dom';
 
 export default ({routes: rs = {}, before = '', after = '', root}) => {
-    const adapter = c => {
+    const adapter = (c, i) => {
         const o = rs[c];
         const isCp = typeof  o === 'function';
         return <Route
+            key={'r-' + i}
             path={'/' + c}
             component={isCp && o || o.component}
-            exact={!isCp && o.exact}
+            exact={!isCp && !!o.exact}
         />
     };
     const routes = Object.keys(rs).map(adapter);
-    const ch = [
-        before,
+    const ch = <div>
+        {before}
         <Switch>
             {routes}
-        </Switch>,
-        after
-    ];
+        </Switch>
+        {after}
+    </div>;
 
-    return root ? <BrowserRouter>{ch}</BrowserRouter> : <div>{ch}</div>;
+    return root ? <BrowserRouter>{ch}</BrowserRouter> : ch;
 }

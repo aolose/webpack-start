@@ -21,8 +21,8 @@ module.exports = function (cfg = {}) {
         },
         resolve: {
             alias: {
-                'react': 'inferno-compat',
-                'react-dom': 'inferno-compat'
+                spriteJS:path.resolve(base,"src/styles/_sprite.js"),
+                css:path.resolve(base,"src/styles/")
             }
         },
         plugins: [
@@ -46,7 +46,7 @@ module.exports = function (cfg = {}) {
         module: {
             rules: [
                 {
-                    test: /\.js$/,
+                    test: /\.jsx?$/,
                     exclude: /node_modules/,
                     use: {
                         loader: "babel-loader"

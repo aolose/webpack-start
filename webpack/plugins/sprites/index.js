@@ -1,5 +1,6 @@
 const ss = require('spritesmith');
-const tmp = require('./template');
+const scssTmp = require('./scssTemp');
+const jsTmp = require('./jsTemp');
 const path = require('path');
 
 function run(images, k, cb) {
@@ -49,7 +50,25 @@ function combineCss(ls) {
             css += `$${nm} : ${x}`;
         });
     });
-    return v + css + tmp;
+    return v + css + scssTmp;
+}
+function combineJs(ls) {
+    let css = 'const ss = {';
+    let v = '';
+    const m = {};
+    ls.forEach(f => {
+        const {c: {k, d}, s: {o}} = f;
+        v += `import ${k} from '${o}';
+`;
+        d.forEach(([n, x]) => {
+            let nm = n;
+            if (m[n]) nm += '_' + m[n]++;
+            else m[n] = 1;
+            css += `
+            ${nm}:`+ JSON.stringify(x.replace(';\n','').split(' ')).replace(`"${k}"`,`${k}`) +',';
+        });
+    });
+    return v +'\n' + css +'};\n' + jsTmp;
 }
 
 module.exports = class Sprites {
@@ -58,7 +77,11 @@ module.exports = class Sprites {
     }
 
     apply(compiler) {
-        const {source = {}, scssPath = '_sprite.scss', base = './src/styles'} = this.options;
+        const {source = {},
+            scssPath = '_sprite.scss',
+            jsPath = '_sprite.js',
+            base = './src/styles'
+        } = this.options;
         let inProcess = false;
         let watched = false;
         const initWatch = (d, f) => {
@@ -127,6 +150,7 @@ module.exports = class Sprites {
                     rs.push(r);
                     if (++i === l) {
                         fs.writeFileSync(path.resolve(basePath, scssPath), combineCss(rs));
+                        fs.writeFileSync(path.resolve(basePath, jsPath), combineJs(rs));
                         rs.forEach(a => {
                             fs.writeFileSync(path.resolve(basePath, a.s.o), a.s.d);
                         });

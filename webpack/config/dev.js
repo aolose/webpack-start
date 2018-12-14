@@ -16,12 +16,12 @@ module.exports = base({
     module: {
         rules: [
             {
-                test: /\.(jpg|png|svg)$/,
+                test: /\.(jpg|png|svg|gif)$/,
                 use: 'file-loader',
             }],
     },
     plugins:[
-        new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
         contentBase: './dist',
