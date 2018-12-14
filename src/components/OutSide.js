@@ -4,9 +4,8 @@ import 'css/Out.scss';
 
 function noBgSplitStyle(icon, value, useCss) {
     const o = splitStyle(icon, parseFloat(value));
-    const {width, height} = o;
-    console.log(icon, o);
-    return useCss ? value ? {width, height} : {} : o;
+    const {width} = o;
+    return useCss ? value ? {width} : {} : o;
 }
 
 const Content = ({icon, value, useCss = 0}) => <>
