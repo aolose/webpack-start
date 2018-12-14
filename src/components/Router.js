@@ -1,6 +1,6 @@
 import React from "react";
 import {Route, Switch} from 'react-router';
-import {BrowserRouter} from 'react-router-dom';
+import {HashRouter} from 'react-router-dom';
 
 export default ({routes: rs = {}, before = '', after = '', root}) => {
     const adapter = (c, i) => {
@@ -22,5 +22,5 @@ export default ({routes: rs = {}, before = '', after = '', root}) => {
         {after}
     </div>;
 
-    return root ? <BrowserRouter>{ch}</BrowserRouter> : ch;
+    return root ? <HashRouter>{ch}</HashRouter> : ch;
 }

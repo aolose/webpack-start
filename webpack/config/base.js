@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const SpritesPlugin = require('../plugins/sprites');
 const base = process.cwd();
-const dist = path.resolve(base, 'dist');
+const dist = path.resolve(base, 'docs');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = function (cfg = {}) {
     const isPro = cfg.mode === 'production';
