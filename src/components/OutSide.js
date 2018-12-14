@@ -36,35 +36,21 @@ class Range extends Component {
     }
 }
 
-export default class  extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cards: [
-                ['logo01', 30],
-                ['logo03', 60],
-                ['logo04', 90],
-            ]
-        }
-    }
-
-    render() {
-        const cards = this.state.cards.concat();
-        return (
-            <div className='z'>
-                <h2>BackgroundSize with sprite image</h2>
-                {cards.map(([t, c]) =>
-                    <div key={t + c} className={'x'}>
-                        <Range value={c} render={
-                            ({value}) => <Content value={value} icon={t}/>
-                        }/>
-                    </div>
-                )}
-                <div className={'x'}>
-                    <h5>css width:{100}</h5>
-                    <div className={'a'}/>
-                </div>
-            </div>
-        )
-    }
-};
+export default () => <div className='z'>
+    <h2>BackgroundSize with sprite image</h2>
+    {[
+        ['logo01', 30],
+        ['logo03', 60],
+        ['logo04', 90],
+    ].map(([t, c]) =>
+        <div key={t + c} className={'x'}>
+            <Range value={c} render={
+                ({value}) => <Content value={value} icon={t}/>
+            }/>
+        </div>
+    )}
+    <div className={'x'}>
+        <h5>css width:{100}</h5>
+        <div className={'a'}/>
+    </div>
+</div>;
