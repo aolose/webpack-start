@@ -1,6 +1,6 @@
 ### Say something? emm...
 About this project:
-- webpack4 + inferno6 + inferno-mobx
+- webpack4 + react + mobx-react
 - write a webpack plugin
 - any element size width sprite image
 
