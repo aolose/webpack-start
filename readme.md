@@ -87,6 +87,7 @@ Usage:
 // webpack config
 new SpritesPlugin({
     scssPath: '_sprite.scss',              // default 
+    jsPath: '_sprite.scss',              // default 
     base: './src/styles',                  // default 
     source: { 
         '../assets/images/sp':             // output  ./src/styles/assets/images/sp.png          
