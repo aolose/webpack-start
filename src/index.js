@@ -10,7 +10,7 @@ import Router from './components/Router';
 const Nav = () => (
     <div className={'nav'}>
         <NavLink activeClassName='act' exact to='/'>Home</NavLink>
-        <NavLink activeClassName='act' to='/out'>Out</NavLink>
+        <NavLink activeClassName='act' to='/sprite'>Sprite</NavLink>
     </div>
 );
 const App = () => <Provider {...store}>

@@ -1,9 +1,9 @@
 import Home from './components/Home';
-import Out from './components/OutSide';
+import Sprite from './components/Sprite';
 export default {
     '': {
         component:Home,
         exact:1
     },
-    'out': Out,
+    'sprite': Sprite,
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import splitStyle from 'spriteJS';
 import {inject, observer} from 'mobx-react';
-import 'css/Out.scss';
+import 'css/sprite1.scss';
 
 function noBgSplitStyle(icon, value, useCss) {
     const o = splitStyle(icon, parseFloat(value));
