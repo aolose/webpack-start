@@ -22,10 +22,12 @@ About this project:
 │   │       ├── sp.png              // auto generated
 │   │       └── sprite
 │   │           ├── logo01.png
-│   │           └── logo02.png
+│   │           ├── logo02.png
+│   │           ├── logo03.png
+│   │           └── logo04.png
 │   ├── components  
 │   │   ├── Home.js
-│   │   ├── OutSide.js              // an example for sprite image
+│   │   ├── Sprite.js              // an example for sprite image
 │   │   └── Router.js               
 │   ├── index.html
 │   ├── index.js
@@ -43,7 +45,8 @@ About this project:
 │   ├── plugins
 │   │   └── sprites                 // an example for webpack plugin
 │   │       ├── index.js
-│   │       └── template.js         // sprite mxin func
+│   │       ├── scssTemp.js       // template to generate _sprite.scss
+│   │       └── jsTemp.js         // template to generate sprite.js
 │   └── serv.js
 ├── webpack-start.iml
 └── yarn.lock
