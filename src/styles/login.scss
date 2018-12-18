@@ -1,0 +1,28 @@
+form{
+  $h:30px;
+  font-size: 13px;
+  label{
+    display: block;
+    margin: 20px;
+    width: 270px;
+    height: $h;
+    line-height: $h;
+  }
+  input{
+    border-radius: 4px;
+    height: $h;
+    box-sizing: border-box;
+    float: right;
+    line-height: $h - 2 ;
+    padding: 0 10px;
+    border: 1px solid #999;
+    &[type="submit"]{
+      float: none;
+      margin: 20px;
+      background: #0290d3;
+      width: 270px;
+      color: #fff;
+      border: 0;
+    }
+  }
+}

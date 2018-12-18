@@ -1,6 +1,6 @@
 ### Say something? emm...
 About this project:
-- webpack4 + react + mobx-react
+- webpack4 + react + mobx-react + animejs
 - write a webpack plugin
 - any element size width sprite image
 
@@ -27,8 +27,9 @@ About this project:
 │   │           └── logo04.png
 │   ├── components  
 │   │   ├── Home.js
+│   │   ├── Login.js
 │   │   ├── Sprite.js              // an example for sprite image
-│   │   └── Router.js               
+│   │   └── Router.js              // router with auth  
 │   ├── index.html
 │   ├── index.js
 │   ├── routes.js
@@ -36,6 +37,10 @@ About this project:
 │   │   └── store.js
 │   └── styles
 │       ├── index.scss
+│       ├── login.scss
+│       ├── home.scss
+│       ├── sprite.scss
+│       ├── _sprite.js              // auto generated
 │       └── _sprite.scss            // auto generated
 ├── webpack
 │   ├── config

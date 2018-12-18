@@ -2,6 +2,7 @@ import React from "react";
 import splitStyle from 'spriteJS';
 import {inject, observer} from 'mobx-react';
 import 'css/sprite1.scss';
+import anime from 'animejs';
 
 function noBgSplitStyle(icon, value, useCss) {
     const o = splitStyle(icon, parseFloat(value));
@@ -20,6 +21,15 @@ const Content = ({icon, value, useCss = 0}) => <>
 
 const Range = inject('outStore')(observer(({outStore, render}) =>
     <>
+        <button onClick={() => anime({
+            targets: outStore,
+            value: outStore.value >1 ? 1 : 240,
+            duration:500,
+            round: 2,
+            easing: 'linear',
+        })}> Auto Change
+        </button>
+        <br/>
         <input
             className={'range'}
             type={'range'}

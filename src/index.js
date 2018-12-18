@@ -3,7 +3,6 @@ import {Provider} from 'mobx-react'
 import React from 'react';
 import {render} from 'react-dom';
 import {NavLink} from 'react-router-dom';
-import routes from './routes';
 import * as store from './stores/store';
 import Router from './components/Router';
 
@@ -14,7 +13,7 @@ const Nav = () => (
     </div>
 );
 const App = () => <Provider {...store}>
-    <Router before={<Nav/>} routes={routes} root/>
+    <Router before={<Nav/>} root/>
 </Provider>;
 
 render(<App/>, document.getElementById('app'));
