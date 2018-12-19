@@ -1,6 +1,6 @@
 ### Say something? emm...
 About this project:
-- webpack4 + react + mobx-react + animejs
+- webpack4 + react + mobx-react + react-spring
 - write a webpack plugin
 - any element size width sprite image
 
